@@ -5,18 +5,22 @@ const initialState = {
   items: [],
 };
 
+// Убрал дублирование кода. Ф-я ищет совпадения в корзине для правильной работы редьюсеров.
+const refactorFindItem = (state, payload) => {
+  return state.items.find(
+    (obj) =>
+      obj.id === payload.id &&
+      obj.type === payload.type &&
+      obj.size === payload.size
+  );
+};
+
 export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
     addItem: (state, { payload }) => {
-      // Поиск пицц, без дублирования в корзине
-      const findItem = state.items.find(
-        (obj) =>
-          obj.id === payload.id &&
-          obj.type === payload.type &&
-          obj.size === payload.size
-      );
+      const findItem = refactorFindItem(state, payload);
 
       if (findItem) {
         findItem.count++;
@@ -28,24 +32,14 @@ export const cartSlice = createSlice({
       }, 0);
     },
     minusItem: (state, { payload }) => {
-      const findItem = state.items.find((obj) => {
-        return (
-          obj.id === payload.id &&
-          obj.size === payload.size &&
-          obj.type === payload.type
-        );
-      });
+      const findItem = refactorFindItem(state, payload);
+
       findItem && findItem.count--;
       state.totalPrice -= findItem.price;
     },
     removeItem: (state, { payload }) => {
-      const findItem = state.items.find((obj) => {
-        return (
-          obj.id === payload.id &&
-          obj.size === payload.size &&
-          obj.type === payload.type
-        );
-      });
+      const findItem = refactorFindItem(state, payload);
+
       state.totalPrice -= findItem.price * findItem.count;
       state.items = state.items.filter((obj) => {
         return (
