@@ -60,6 +60,7 @@
     ]
   },
   "devDependencies": {
+    "@types/lodash.debounce": "^4.0.7",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",
     "eslint": "^8.21.0",

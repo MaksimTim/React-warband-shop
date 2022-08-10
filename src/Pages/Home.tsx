@@ -5,14 +5,19 @@ import Sort, { sortList } from "../components/Sort";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import PizzaBlock from "../components/PizzaBlock/PizzaBlock";
 import Pagination from "../components/Pagination/Pagination";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import qs from "qs";
-import { selectFilter, setFilters } from "../redux/slices/filterSlice";
-import {fetchPizzas, selectPizzaData} from "../redux/slices/pizzaSlice";
+import {
+  ActionTypeBBB,
+  selectFilter,
+  setFilters,
+} from "../redux/slices/filterSlice";
+import { fetchPizzas, selectPizzaData } from "../redux/slices/pizzaSlice";
 import { selectorSearch } from "../redux/slices/searchSlice";
+import { useAppDispatch } from "../redux/store";
 
-const Home = () => {
-  const dispatch = useDispatch();
+const Home: React.FC = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const isSearch = useRef(false);
   const isMounted = useRef(false);
@@ -20,7 +25,7 @@ const Home = () => {
   const { categoryId, orderType, sortType, currentPage } =
     useSelector(selectFilter);
   const { searchValue } = useSelector(selectorSearch);
-  const { items, pagesCount, limit, status } = useSelector(selectPizzaData);
+  const { items, limit, status } = useSelector(selectPizzaData);
 
   const getPizzas = async () => {
     const category = categoryId > 0 ? `category=${categoryId}` : "";
@@ -49,10 +54,18 @@ const Home = () => {
   useEffect(() => {
     if (window.location.search) {
       const params = qs.parse(window.location.search.substring(1));
+      console.log(params);
       const sortType = sortList.find(
         (obj) => obj.sortProperty === params.sortType
       );
-      dispatch(setFilters({ ...params, sortType }));
+
+      const actionAAA: ActionTypeBBB = {
+        categoryId: String(params.categoryId),
+        currentPage: String(params.currentPage),
+        orderType: String(params.orderType),
+        sortType: sortType || sortList[0],
+      };
+      dispatch(setFilters(actionAAA));
       isSearch.current = true;
     }
   }, []);
@@ -86,7 +99,7 @@ const Home = () => {
           {status === "loading" ? skeletons : pizzas}
         </div>
       )}
-      <Pagination pagesCount={pagesCount} />
+      <Pagination />
     </div>
   );
 };
