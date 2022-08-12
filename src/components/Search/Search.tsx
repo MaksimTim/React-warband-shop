@@ -56,7 +56,7 @@ const Search: React.FC = () => {
         value={value}
         onChange={onChangeInput}
         className={styles.input}
-        placeholder={"Search..."}
+        placeholder={"Я поддерживаю Я"}
       />
       {value && (
         <svg

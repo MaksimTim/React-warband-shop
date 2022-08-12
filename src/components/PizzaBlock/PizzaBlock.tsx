@@ -7,7 +7,7 @@ import {
 } from "../../redux/slices/cartSlice";
 import { Link } from "react-router-dom";
 
-const typeNames = ["тонкое", "традиционное"];
+const typeNames = ["Не портится", "Портится"];
 
 type PizzaBlockProps = {
   id: string;
@@ -74,13 +74,13 @@ const PizzaBlock: React.FC<PizzaBlockProps> = ({
                 className={activeSize === i ? "active" : ""}
                 key={i}
               >
-                {size} см.
+                масса: {size}
               </li>
             ))}
           </ul>
         </div>
         <div className="pizza-block__bottom">
-          <div className="pizza-block__price">от {price} ₽</div>
+          <div className="pizza-block__price">{price} динар</div>
           <button
             onClick={onClickAdd}
             className="button button--outline button--add"

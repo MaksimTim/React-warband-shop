@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from "react";
-import logoPizzaSvg from "../assets/img/pizza-logo.svg";
+import logoMarnid from "../assets/img/MarnidHead.png";
 import { Link, useLocation } from "react-router-dom";
 import Search from "./Search/Search";
 import { useSelector } from "react-redux";
@@ -23,10 +23,10 @@ const Header = () => {
       <div className="container">
         <Link to="/">
           <div className=" header__logo">
-            <img width="38" src={logoPizzaSvg} alt="Pizza logo" />
+            <img src={logoMarnid} alt="Pizza logo" />
             <div>
-              <h1>React Pizza</h1>
-              <p>самая вкусная пицца во вселенной</p>
+              <h1>Merchant Marnid</h1>
+              <p>самый вкусный масло во всей Кальрадия</p>
             </div>
           </div>
         </Link>
@@ -34,7 +34,7 @@ const Header = () => {
         <div className="header__cart">
           {location.pathname !== "/cart" && (
             <Link to="/cart" className="button button--cart">
-              <span>{totalPrice} ₽</span>
+              <span>{totalPrice} д.</span>
               <div className="button__delimiter"></div>
               <svg
                 width="18"

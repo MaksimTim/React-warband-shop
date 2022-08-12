@@ -32,7 +32,6 @@ const refactorFindItem = (state: CartSliceState, payload: CartChangeAction) => {
   return state.items.find(
     (obj) =>
       obj.id === payload.id &&
-      obj.type === payload.type &&
       obj.size === payload.size
   );
 };
