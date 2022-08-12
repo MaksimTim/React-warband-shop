@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
+import { getCartFromLS } from "../../utils/getCartFromLS";
+import { CalcTotalPrice } from "../../utils/calcTotalPrice";
 
 export type CartItem = {
   id: string;
@@ -18,9 +20,11 @@ interface CartSliceState {
 
 export type CartChangeAction = { id: string; type: string; size: number };
 
+const { items, totalPrice } = getCartFromLS();
+
 const initialState: CartSliceState = {
-  totalPrice: 0,
-  items: [],
+  totalPrice,
+  items,
 };
 
 // Убрал дублирование кода. Ф-я ищет совпадения в корзине для правильной работы редьюсеров.
@@ -45,9 +49,7 @@ export const cartSlice = createSlice({
       } else {
         state.items.push({ ...payload, count: 1 });
       }
-      state.totalPrice = state.items.reduce((sum, obj) => {
-        return obj.price * obj.count + sum;
-      }, 0);
+      state.totalPrice = CalcTotalPrice(state.items);
     },
     plusItem: (state, { payload }: PayloadAction<CartChangeAction>) => {
       const findItem = refactorFindItem(state, payload);

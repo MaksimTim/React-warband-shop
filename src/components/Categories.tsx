@@ -11,8 +11,7 @@ const categories: string[] = [
   "Закрытые",
 ];
 
-const Categories: React.FC = () => {
-
+const Categories: React.FC = React.memo(() => {
   const { categoryId } = useSelector(selectFilter);
   const dispatch = useDispatch();
 
@@ -31,6 +30,8 @@ const Categories: React.FC = () => {
       </ul>
     </div>
   );
-};
+});
+
+Categories.displayName = "Categories";
 
 export default Categories;
