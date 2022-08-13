@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/warband-shop/static/css/main.79765d0f.css",
-    "main.js": "/warband-shop/static/js/main.5b8193b3.js",
-    "static/js/269.69b69ff3.chunk.js": "/warband-shop/static/js/269.69b69ff3.chunk.js",
-    "static/js/847.37946373.chunk.js": "/warband-shop/static/js/847.37946373.chunk.js",
-    "static/media/MarnidHead.png": "/warband-shop/static/media/MarnidHead.4f8fcfd7aa0f4cea3b27.png",
-    "static/media/empty-cart.png": "/warband-shop/static/media/empty-cart.ef9679f4052ae1e36452.png",
-    "index.html": "/warband-shop/index.html",
-    "main.79765d0f.css.map": "/warband-shop/static/css/main.79765d0f.css.map",
-    "main.5b8193b3.js.map": "/warband-shop/static/js/main.5b8193b3.js.map",
-    "269.69b69ff3.chunk.js.map": "/warband-shop/static/js/269.69b69ff3.chunk.js.map",
-    "847.37946373.chunk.js.map": "/warband-shop/static/js/847.37946373.chunk.js.map"
+    "main.css": "/React-warband-shop/static/css/main.79765d0f.css",
+    "main.js": "/React-warband-shop/static/js/main.2be992a9.js",
+    "static/js/269.69b69ff3.chunk.js": "/React-warband-shop/static/js/269.69b69ff3.chunk.js",
+    "static/js/847.37946373.chunk.js": "/React-warband-shop/static/js/847.37946373.chunk.js",
+    "static/media/MarnidHead.png": "/React-warband-shop/static/media/MarnidHead.4f8fcfd7aa0f4cea3b27.png",
+    "static/media/empty-cart.png": "/React-warband-shop/static/media/empty-cart.ef9679f4052ae1e36452.png",
+    "index.html": "/React-warband-shop/index.html",
+    "main.79765d0f.css.map": "/React-warband-shop/static/css/main.79765d0f.css.map",
+    "main.2be992a9.js.map": "/React-warband-shop/static/js/main.2be992a9.js.map",
+    "269.69b69ff3.chunk.js.map": "/React-warband-shop/static/js/269.69b69ff3.chunk.js.map",
+    "847.37946373.chunk.js.map": "/React-warband-shop/static/js/847.37946373.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.79765d0f.css",
-    "static/js/main.5b8193b3.js"
+    "static/js/main.2be992a9.js"
   ]
 }
